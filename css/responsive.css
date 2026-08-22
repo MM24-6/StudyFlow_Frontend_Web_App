@@ -427,6 +427,61 @@
   }
 }
 
+/* ─── Final Mobile Sidebar & Notifications Fix ─── */
+
+@media (max-width: 768px) {
+
+  /* Sidebar should use full available height */
+  .sidebar {
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-nav {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .sidebar-footer {
+    flex-shrink: 0;
+    margin-top: auto;
+  }
+
+  /* Notification panel stays inside the screen */
+  .notification-panel {
+    position: fixed !important;
+    top: calc(var(--topbar-height) + 8px);
+    right: 12px !important;
+    left: 12px !important;
+    width: auto !important;
+    max-width: none !important;
+    max-height: calc(100dvh - var(--topbar-height) - 24px);
+    overflow-y: auto;
+    z-index: 9999;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .notification-panel {
+    right: 8px !important;
+    left: 8px !important;
+    width: auto !important;
+    max-height: calc(100dvh - var(--topbar-height) - 16px);
+  }
+
+  .notification-panel-header,
+  .notification-item {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
 /* ─── Mobile Sidebar Overlay Fix ─── */
 .sidebar-overlay {
   opacity: 0;
