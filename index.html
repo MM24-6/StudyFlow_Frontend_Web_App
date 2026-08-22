@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyFlow — Plan smarter. Learn better. Achieve more.</title>
+  <meta name="description" content="StudyFlow is a premium student productivity app that helps you organize courses, assignments, study sessions, notes, and academic progress in one beautiful interface.">
+  <meta property="og:title" content="StudyFlow — Student Productivity App">
+  <meta property="og:description" content="Plan smarter. Learn better. Achieve more. Organize your academic life with StudyFlow.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="landing">
+  <div class="page-wrapper">
+    <!-- Navigation -->
+    <header class="landing-nav" role="banner">
+      <div class="landing-nav-inner">
+        <a href="index.html" class="logo">
+          <div class="logo-icon"><i data-lucide="graduation-cap"></i></div>
+          StudyFlow
+        </a>
+        <nav class="landing-nav-links" aria-label="Main navigation">
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#preview">Preview</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="landing-nav-actions">
+          <button class="btn btn-ghost btn-icon" id="landingThemeToggle" aria-label="Toggle theme">
+            <i data-lucide="sun" id="landingThemeIcon"></i>
+          </button>
+          <a href="dashboard.html" class="btn btn-primary">Open Dashboard</a>
+          <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle menu">
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <i data-lucide="sparkles" style="width:16px;height:16px"></i>
+              Academic Productivity, Reimagined
+            </div>
+            <h1 class="hero-title" id="hero-title">
+              Your <span class="gradient-text">smarter way</span> to stay ahead.
+            </h1>
+            <p class="hero-desc">
+              StudyFlow helps students organize courses, assignments, study sessions, notes, and progress tracking — all in one beautifully designed workspace built for academic excellence.
+            </p>
+            <div class="hero-actions">
+              <a href="dashboard.html" class="btn btn-primary btn-lg">
+                <i data-lucide="layout-dashboard"></i>
+                Open Dashboard
+              </a>
+              <a href="#features" class="btn btn-secondary btn-lg">
+                <i data-lucide="compass"></i>
+                Explore Features
+              </a>
+            </div>
+            <div class="hero-stats">
+              <div>
+                <div class="hero-stat-value">12K+</div>
+                <div class="hero-stat-label">Students</div>
+              </div>
+              <div>
+                <div class="hero-stat-value">94%</div>
+                <div class="hero-stat-label">Completion Rate</div>
+              </div>
+              <div>
+                <div class="hero-stat-value">4.9/5</div>
+                <div class="hero-stat-label">User Rating</div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-glow" aria-hidden="true"></div>
+            <div class="hero-dashboard-mockup" role="img" aria-label="StudyFlow dashboard preview showing statistics and tasks">
+              <div class="mockup-header">
+                <span class="mockup-dot red"></span>
+                <span class="mockup-dot yellow"></span>
+                <span class="mockup-dot green"></span>
+              </div>
+              <div class="mockup-stats-row">
+                <div class="mockup-stat-card">
+                  <div class="value">24</div>
+                  <div class="label">Tasks Done</div>
+                </div>
+                <div class="mockup-stat-card">
+                  <div class="value">18.5h</div>
+                  <div class="label">Study Hours</div>
+                </div>
+                <div class="mockup-stat-card">
+                  <div class="value">68%</div>
+                  <div class="label">Progress</div>
+                </div>
+              </div>
+              <div class="mockup-chart-area" aria-hidden="true">
+                <div class="mockup-bar" style="height:45%"></div>
+                <div class="mockup-bar" style="height:70%"></div>
+                <div class="mockup-bar" style="height:55%"></div>
+                <div class="mockup-bar" style="height:85%"></div>
+                <div class="mockup-bar" style="height:60%"></div>
+                <div class="mockup-bar" style="height:90%"></div>
+                <div class="mockup-bar" style="height:40%"></div>
+              </div>
+              <div class="mockup-tasks">
+                <div class="mockup-task">
+                  <div class="mockup-task-check done"></div>
+                  <span>React Component Library</span>
+                </div>
+                <div class="mockup-task">
+                  <div class="mockup-task-check"></div>
+                  <span>Neural Network Implementation</span>
+                </div>
+                <div class="mockup-task">
+                  <div class="mockup-task-check"></div>
+                  <span>SQL Query Optimization</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Stats -->
+    <section class="stats-section" aria-label="Platform statistics">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-item-value">12K+</div>
+            <div class="stat-item-label">Students</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item-value">48K+</div>
+            <div class="stat-item-label">Tasks Organized</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item-value">94%</div>
+            <div class="stat-item-label">Completion Rate</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item-value">4.9/5</div>
+            <div class="stat-item-label">User Rating</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Features</span>
+          <h2 class="section-title" id="features-title">Everything you need to excel</h2>
+          <p class="section-desc">Powerful tools designed specifically for students who want to take control of their academic journey.</p>
+        </div>
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-icon"><i data-lucide="calendar-check"></i></div>
+            <h3>Smart Planning</h3>
+            <p>Plan your week with an intelligent study scheduler that adapts to your priorities and deadlines.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon"><i data-lucide="clipboard-list"></i></div>
+            <h3>Assignment Tracking</h3>
+            <p>Never miss a deadline. Track assignments by priority, status, and due date with visual progress indicators.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon"><i data-lucide="book-open"></i></div>
+            <h3>Course Organization</h3>
+            <p>Manage all your courses in one place with progress tracking, module completion, and next lesson previews.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon"><i data-lucide="bar-chart-3"></i></div>
+            <h3>Progress Analytics</h3>
+            <p>Visualize your academic performance with beautiful charts showing study hours, completion rates, and trends.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon"><i data-lucide="sticky-note"></i></div>
+            <h3>Notes</h3>
+            <p>Capture lecture notes, ideas, and study materials with categories, tags, and pin important notes.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon"><i data-lucide="timer"></i></div>
+            <h3>Study Sessions</h3>
+            <p>Schedule focused study blocks with session types, duration tracking, and weekly calendar views.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section bg-pattern" id="how-it-works" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">How It Works</span>
+          <h2 class="section-title" id="how-title">Three steps to academic success</h2>
+          <p class="section-desc">Getting started with StudyFlow is simple. Organize, focus, and improve your academic performance.</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Organize</h3>
+            <p>Add your courses, assignments, and study sessions. Import your schedule and set priorities for the semester ahead.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Focus</h3>
+            <p>Use the smart planner to block study time, track deadlines, and eliminate distractions with a clear daily roadmap.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Improve</h3>
+            <p>Review analytics to understand your habits, identify strengths, and continuously optimize your study approach.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preview -->
+    <section class="section preview-section" id="preview" aria-labelledby="preview-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Preview</span>
+          <h2 class="section-title" id="preview-title">A dashboard built for focus</h2>
+          <p class="section-desc">See everything at a glance — tasks, schedules, progress, and insights in one cohesive workspace.</p>
+        </div>
+        <div class="preview-dashboard" role="img" aria-label="StudyFlow application dashboard preview">
+          <div class="preview-toolbar">
+            <div class="logo logo-sm">
+              <div class="logo-icon"><i data-lucide="graduation-cap"></i></div>
+              StudyFlow
+            </div>
+          </div>
+          <div class="preview-body">
+            <div class="preview-sidebar">
+              <div class="preview-nav-item active"><i data-lucide="layout-dashboard" style="width:16px;height:16px;display:inline"></i> Overview</div>
+              <div class="preview-nav-item"><i data-lucide="book-open" style="width:16px;height:16px;display:inline"></i> Courses</div>
+              <div class="preview-nav-item"><i data-lucide="clipboard-list" style="width:16px;height:16px;display:inline"></i> Assignments</div>
+              <div class="preview-nav-item"><i data-lucide="calendar" style="width:16px;height:16px;display:inline"></i> Planner</div>
+              <div class="preview-nav-item"><i data-lucide="sticky-note" style="width:16px;height:16px;display:inline"></i> Notes</div>
+            </div>
+            <div class="preview-content">
+              <div class="preview-cards">
+                <div class="preview-card"><div class="num">24</div><div class="lbl">Tasks Completed</div></div>
+                <div class="preview-card"><div class="num">6</div><div class="lbl">Pending</div></div>
+                <div class="preview-card"><div class="num">18.5h</div><div class="lbl">Study Hours</div></div>
+                <div class="preview-card"><div class="num">64%</div><div class="lbl">Progress</div></div>
+              </div>
+              <div class="mockup-chart-area" style="height:180px;border-radius:12px">
+                <div class="mockup-bar" style="height:50%"></div>
+                <div class="mockup-bar" style="height:75%"></div>
+                <div class="mockup-bar" style="height:60%"></div>
+                <div class="mockup-bar" style="height:90%"></div>
+                <div class="mockup-bar" style="height:70%"></div>
+                <div class="mockup-bar" style="height:85%"></div>
+                <div class="mockup-bar" style="height:45%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section" id="testimonials" aria-labelledby="testimonials-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Testimonials</span>
+          <h2 class="section-title" id="testimonials-title">Loved by students</h2>
+          <p class="section-desc">See what students are saying about their experience with StudyFlow.</p>
+        </div>
+        <div class="testimonials-grid">
+          <blockquote class="testimonial-card">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">
+              <i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i>
+              <i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i>
+              <i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i>
+              <i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i>
+              <i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i>
+            </div>
+            <p class="testimonial-text">"StudyFlow completely changed how I manage my semester. The assignment tracker alone saved me from missing three deadlines."</p>
+            <footer class="testimonial-author">
+              <div class="testimonial-avatar">AK</div>
+              <div>
+                <div class="testimonial-name">Alex Kim</div>
+                <div class="testimonial-role">CS Student, State University</div>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial-card">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">
+              <i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i>
+              <i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i>
+              <i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i>
+              <i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i>
+              <i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i>
+            </div>
+            <p class="testimonial-text">"The analytics dashboard helped me realize I was neglecting Database Systems. Now my study time is balanced across all courses."</p>
+            <footer class="testimonial-author">
+              <div class="testimonial-avatar">SR</div>
+              <div>
+                <div class="testimonial-name">Sara Rahman</div>
+                <div class="testimonial-role">Software Engineering Student</div>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial-card">
+            <div class="testimonial-stars" aria-label="5 out of 5 stars">
+              <i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i>
+              <i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i>
+              <i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i>
+              <i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i>
+              <i data-lucide="star" style="width:16px;height:16px;fill:currentColor"></i>
+            </div>
+            <p class="testimonial-text">"Clean design, intuitive interface, and the notes feature with tags is exactly what I needed. It feels like a real professional app."</p>
+            <footer class="testimonial-author">
+              <div class="testimonial-avatar">JT</div>
+              <div>
+                <div class="testimonial-name">Jordan Taylor</div>
+                <div class="testimonial-role">Data Science Student</div>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-box">
+          <h2 id="cta-title">Ready to transform your academic life?</h2>
+          <p>Join thousands of students who are already organizing smarter, studying better, and achieving more with StudyFlow.</p>
+          <a href="dashboard.html" class="btn btn-primary btn-lg">
+            <i data-lucide="rocket"></i>
+            Get Started Free
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="logo">
+              <div class="logo-icon"><i data-lucide="graduation-cap"></i></div>
+              StudyFlow
+            </a>
+            <p>Plan smarter. Learn better. Achieve more. Your all-in-one academic productivity companion.</p>
+            <div class="footer-social">
+              <a href="https://x.com" aria-label="X"><i data-lucide="twitter"></i></a>
+              <a href="https://github.com" aria-label="GitHub"><i data-lucide="github"></i></a>
+              <a href="https://www.linkedin.com" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="dashboard.html">Dashboard</a></li>
+              <li><a href="courses.html">Courses</a></li>
+              <li><a href="assignments.html">Assignments</a></li>
+              <li><a href="planner.html">Study Planner</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Features</h4>
+            <ul>
+              <li><a href="#features">Smart Planning</a></li>
+              <li><a href="notes.html">Notes</a></li>
+              <li><a href="analytics.html">Analytics</a></li>
+              <li><a href="settings.html">Settings</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="contact.html">Feedback</a></li>
+              <li><a href="#how-it-works">How It Works</a></li>
+              <li><a href="#testimonials">Testimonials</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 StudyFlow. All rights reserved.</p>
+          <p>Built by Madiha Manzoor — Frontend Development Intern</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

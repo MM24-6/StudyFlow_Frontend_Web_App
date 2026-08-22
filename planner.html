@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Planner — StudyFlow</title>
+  <meta name="description" content="Plan your weekly study sessions with StudyFlow's visual study planner.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="planner">
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="app-content">
+        <div class="page-header flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <h1>Study Planner</h1>
+            <p>Plan and organize your weekly study sessions</p>
+          </div>
+          <button class="btn btn-primary" id="addSessionBtn">
+            <i data-lucide="plus"></i> Add Session
+          </button>
+        </div>
+
+        <div class="planner-grid" id="plannerGrid"></div>
+        <div id="plannerEmpty" class="empty-state" style="display:none">
+          <div class="empty-state-icon"><i data-lucide="calendar"></i></div>
+          <h3>No study sessions planned</h3>
+          <p>Start planning your week by adding study sessions.</p>
+          <button class="btn btn-primary" id="emptySessionBtn">Add Session</button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Add Session Modal -->
+  <div class="modal-overlay" id="sessionModal" aria-hidden="true" role="dialog" aria-labelledby="sessionModalTitle">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="sessionModalTitle">Add Study Session</h2>
+        <button class="modal-close" data-close="sessionModal" aria-label="Close modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <form id="sessionForm">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="sessionSubject">Subject <span class="required">*</span></label>
+            <input type="text" id="sessionSubject" class="form-input" list="sessionSubjects" required>
+            <datalist id="sessionSubjects">
+              <option value="Web Development">
+              <option value="Database Systems">
+              <option value="Machine Learning">
+              <option value="Computer Networks">
+              <option value="Software Engineering">
+            </datalist>
+            <span class="form-error"></span>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="sessionDate">Date <span class="required">*</span></label>
+              <input type="date" id="sessionDate" class="form-input" required>
+              <span class="form-error"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="sessionTime">Start Time <span class="required">*</span></label>
+              <input type="time" id="sessionTime" class="form-input" required>
+              <span class="form-error"></span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="sessionDuration">Duration (minutes)</label>
+              <input type="number" id="sessionDuration" class="form-input" value="60" min="15" max="480" step="15">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="sessionType">Session Type</label>
+              <select id="sessionType" class="form-select">
+                <option value="lecture">Lecture Review</option>
+                <option value="coding">Coding Practice</option>
+                <option value="lab">Lab Work</option>
+                <option value="group">Group Study</option>
+                <option value="project">Project Work</option>
+                <option value="review">Review</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-close="sessionModal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Plan Session</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/planner.js"></script>
+</body>
+</html>

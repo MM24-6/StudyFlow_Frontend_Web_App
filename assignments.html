@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignments — StudyFlow</title>
+  <meta name="description" content="Track, manage, and complete your assignments with StudyFlow's assignment manager.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="assignments">
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="app-content">
+        <div class="page-header flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <h1>Assignments</h1>
+            <p>Track and manage your academic tasks</p>
+          </div>
+          <button class="btn btn-primary" id="addAssignmentBtn">
+            <i data-lucide="plus"></i> Add Assignment
+          </button>
+        </div>
+
+        <div class="filter-bar">
+          <div class="search-box">
+            <i data-lucide="search"></i>
+            <input type="search" id="assignmentSearch" placeholder="Search assignments..." aria-label="Search assignments">
+          </div>
+          <div class="filter-group">
+            <label for="statusFilter">Status:</label>
+            <select id="statusFilter" class="filter-select">
+              <option value="all">All</option>
+              <option value="pending">Pending</option>
+              <option value="in-progress">In Progress</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="priorityFilter">Priority:</label>
+            <select id="priorityFilter" class="filter-select">
+              <option value="all">All</option>
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="sortFilter">Sort:</label>
+            <select id="sortFilter" class="filter-select">
+              <option value="due-asc">Due Date (Earliest)</option>
+              <option value="due-desc">Due Date (Latest)</option>
+              <option value="priority">Priority</option>
+              <option value="title">Title</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="assignmentList" class="task-list"></div>
+        <div id="assignmentEmpty" class="empty-state" style="display:none">
+          <div class="empty-state-icon"><i data-lucide="clipboard-list"></i></div>
+          <h3>No assignments found</h3>
+          <p id="emptyMessage">Create your first assignment to get started.</p>
+          <button class="btn btn-primary" id="emptyAddBtn">Add Assignment</button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Add/Edit Assignment Modal -->
+  <div class="modal-overlay" id="assignmentModal" aria-hidden="true" role="dialog" aria-labelledby="assignmentModalTitle">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <h2 class="modal-title" id="assignmentModalTitle">Add Assignment</h2>
+        <button class="modal-close" data-close="assignmentModal" aria-label="Close modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <form id="assignmentForm">
+        <div class="modal-body">
+          <input type="hidden" id="assignmentId">
+          <div class="form-group">
+            <label class="form-label" for="assignTitle">Assignment Title <span class="required">*</span></label>
+            <input type="text" id="assignTitle" class="form-input" required>
+            <span class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="assignSubject">Subject <span class="required">*</span></label>
+            <input type="text" id="assignSubject" class="form-input" list="subjectList" required>
+            <datalist id="subjectList">
+              <option value="Web Development">
+              <option value="Database Systems">
+              <option value="Machine Learning">
+              <option value="Computer Networks">
+              <option value="Software Engineering">
+            </datalist>
+            <span class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="assignDescription">Description</label>
+            <textarea id="assignDescription" class="form-textarea" rows="3"></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="assignDueDate">Due Date <span class="required">*</span></label>
+              <input type="date" id="assignDueDate" class="form-input" required>
+              <span class="form-error"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="assignPriority">Priority</label>
+              <select id="assignPriority" class="form-select">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="assignStatus">Status</label>
+            <select id="assignStatus" class="form-select">
+              <option value="pending">Pending</option>
+              <option value="in-progress">In Progress</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-close="assignmentModal">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="assignmentSubmitBtn">Add Assignment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/assignments.js"></script>
+</body>
+</html>

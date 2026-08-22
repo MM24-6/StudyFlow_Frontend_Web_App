@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes — StudyFlow</title>
+  <meta name="description" content="Create, organize, and search your study notes with StudyFlow.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="notes">
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="app-content">
+        <div class="page-header flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <h1>Notes</h1>
+            <p>Capture and organize your study materials</p>
+          </div>
+          <button class="btn btn-primary" id="addNoteBtn">
+            <i data-lucide="plus"></i> Add Note
+          </button>
+        </div>
+
+        <div class="filter-bar">
+          <div class="search-box">
+            <i data-lucide="search"></i>
+            <input type="search" id="noteSearch" placeholder="Search notes..." aria-label="Search notes">
+          </div>
+          <div class="filter-group">
+            <label for="categoryFilter">Category:</label>
+            <select id="categoryFilter" class="filter-select">
+              <option value="all">All Categories</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="pinnedSection" style="margin-bottom:var(--space-8);display:none">
+          <h2 class="card-title" style="margin-bottom:var(--space-4);display:flex;align-items:center;gap:var(--space-2)">
+            <i data-lucide="pin" style="width:18px;height:18px;color:var(--color-accent)"></i> Pinned Notes
+          </h2>
+          <div class="notes-grid" id="pinnedNotes"></div>
+        </div>
+
+        <div id="recentSection">
+          <h2 class="card-title" style="margin-bottom:var(--space-4)">All Notes</h2>
+          <div class="notes-grid" id="notesGrid"></div>
+        </div>
+
+        <div id="notesEmpty" class="empty-state" style="display:none">
+          <div class="empty-state-icon"><i data-lucide="sticky-note"></i></div>
+          <h3>No notes yet</h3>
+          <p>Start capturing your study materials by creating your first note.</p>
+          <button class="btn btn-primary" id="emptyNoteBtn">Create Note</button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Add/Edit Note Modal -->
+  <div class="modal-overlay" id="noteModal" aria-hidden="true" role="dialog" aria-labelledby="noteModalTitle">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <h2 class="modal-title" id="noteModalTitle">Add Note</h2>
+        <button class="modal-close" data-close="noteModal" aria-label="Close modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <form id="noteForm">
+        <div class="modal-body">
+          <input type="hidden" id="noteId">
+          <div class="form-group">
+            <label class="form-label" for="noteTitle">Title <span class="required">*</span></label>
+            <input type="text" id="noteTitle" class="form-input" required>
+            <span class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="noteContent">Content <span class="required">*</span></label>
+            <textarea id="noteContent" class="form-textarea" rows="6" required></textarea>
+            <span class="form-error"></span>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="noteCategory">Category</label>
+              <input type="text" id="noteCategory" class="form-input" list="noteCategories" placeholder="e.g. Web Development">
+              <datalist id="noteCategories">
+                <option value="Web Development">
+                <option value="Database Systems">
+                <option value="Machine Learning">
+                <option value="Computer Networks">
+                <option value="Software Engineering">
+                <option value="General">
+              </datalist>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="noteTags">Tags (comma-separated)</label>
+              <input type="text" id="noteTags" class="form-input" placeholder="e.g. css, layout">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-checkbox">
+              <input type="checkbox" id="notePinned">
+              Pin this note
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-close="noteModal">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="noteSubmitBtn">Save Note</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/notes.js"></script>
+</body>
+</html>

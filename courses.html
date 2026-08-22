@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses — StudyFlow</title>
+  <meta name="description" content="Manage your courses, track progress, and view upcoming lessons in StudyFlow.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="courses">
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="app-content">
+        <div class="page-header flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <h1>Courses</h1>
+            <p>Manage and track your academic courses</p>
+          </div>
+        </div>
+
+        <div class="filter-bar">
+          <div class="search-box">
+            <i data-lucide="search"></i>
+            <input type="search" id="courseSearch" placeholder="Search courses..." aria-label="Search courses">
+          </div>
+          <div class="filter-group">
+            <label for="courseSort">Sort by:</label>
+            <select id="courseSort" class="filter-select" aria-label="Sort courses">
+              <option value="name">Name</option>
+              <option value="progress-desc">Progress (High to Low)</option>
+              <option value="progress-asc">Progress (Low to High)</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="courseFilter">Filter:</label>
+            <select id="courseFilter" class="filter-select" aria-label="Filter courses">
+              <option value="all">All Courses</option>
+              <option value="high">High Progress (70%+)</option>
+              <option value="medium">Medium Progress (40-69%)</option>
+              <option value="low">Low Progress (&lt;40%)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="course-grid" id="courseGrid"></div>
+        <div id="courseEmpty" class="empty-state" style="display:none">
+          <div class="empty-state-icon"><i data-lucide="search-x"></i></div>
+          <h3>No courses found</h3>
+          <p>Try adjusting your search or filter criteria.</p>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Course Details Modal -->
+  <div class="modal-overlay" id="courseModal" aria-hidden="true" role="dialog" aria-labelledby="courseModalTitle">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <h2 class="modal-title" id="courseModalTitle">Course Details</h2>
+        <button class="modal-close" data-close="courseModal" aria-label="Close modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="modal-body" id="courseModalBody"></div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-close="courseModal">Close</button>
+        <a href="assignments.html" class="btn btn-primary">View Assignments</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/courses.js"></script>
+</body>
+</html>

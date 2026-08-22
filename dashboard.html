@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — StudyFlow</title>
+  <meta name="description" content="Your StudyFlow dashboard — overview of tasks, study sessions, progress, and quick actions.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="dashboard">
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar" aria-label="Sidebar navigation"></aside>
+    <div class="app-main">
+      <header class="topbar" id="topbar"></header>
+      <main class="app-content">
+        <section class="welcome-section">
+          <h1 id="welcomeMessage">Good morning 👋</h1>
+          <p>Ready to make progress today?</p>
+        </section>
+
+        <section class="dashboard-stats" id="statsCards" aria-label="Statistics overview"></section>
+
+        <section class="dashboard-grid">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Weekly Study Progress</h2>
+            </div>
+            <div class="chart-container">
+              <canvas id="weeklyChart" aria-label="Weekly study hours chart"></canvas>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Quick Actions</h2>
+            </div>
+            <div class="quick-actions" id="quickActions">
+              <button class="quick-action-btn" data-action="assignment">
+                <i data-lucide="plus"></i> Add Task
+              </button>
+              <button class="quick-action-btn" data-action="note">
+                <i data-lucide="sticky-note"></i> Add Note
+              </button>
+              <button class="quick-action-btn" data-action="session">
+                <i data-lucide="calendar"></i> Plan Session
+              </button>
+              <a href="courses.html" class="quick-action-btn">
+                <i data-lucide="book-open"></i> Add Course
+              </a>
+            </div>
+            <div style="margin-top:var(--space-6)">
+              <h3 class="card-title" style="font-size:var(--font-size-base);margin-bottom:var(--space-4)">Recent Activity</h3>
+              <div class="activity-list" id="activityList"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="dashboard-grid-2">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Upcoming Tasks</h2>
+              <a href="assignments.html" class="btn btn-ghost btn-sm">View All</a>
+            </div>
+            <div class="task-list" id="upcomingTasks"></div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Today's Schedule</h2>
+              <a href="planner.html" class="btn btn-ghost btn-sm">View Planner</a>
+            </div>
+            <div class="schedule-list" id="todaySchedule"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Quick Add Assignment Modal -->
+  <div class="modal-overlay" id="quickAssignmentModal" aria-hidden="true" role="dialog" aria-labelledby="quickAssignmentTitle">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="quickAssignmentTitle">Add Task</h2>
+        <button class="modal-close" data-close="quickAssignmentModal" aria-label="Close modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <form id="quickAssignmentForm">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="qaTitle">Title <span class="required">*</span></label>
+            <input type="text" id="qaTitle" class="form-input" required>
+            <span class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="qaSubject">Subject <span class="required">*</span></label>
+            <input type="text" id="qaSubject" class="form-input" required>
+            <span class="form-error"></span>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="qaDueDate">Due Date <span class="required">*</span></label>
+              <input type="date" id="qaDueDate" class="form-input" required>
+              <span class="form-error"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="qaPriority">Priority</label>
+              <select id="qaPriority" class="form-select">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-close="quickAssignmentModal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Add Task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Quick Add Note Modal -->
+  <div class="modal-overlay" id="quickNoteModal" aria-hidden="true" role="dialog" aria-labelledby="quickNoteTitle">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="quickNoteTitle">Add Note</h2>
+        <button class="modal-close" data-close="quickNoteModal" aria-label="Close modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <form id="quickNoteForm">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="qnTitle">Title <span class="required">*</span></label>
+            <input type="text" id="qnTitle" class="form-input" required>
+            <span class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="qnContent">Content <span class="required">*</span></label>
+            <textarea id="qnContent" class="form-textarea" required></textarea>
+            <span class="form-error"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="qnCategory">Category</label>
+            <input type="text" id="qnCategory" class="form-input" placeholder="e.g. Web Development">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-close="quickNoteModal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Note</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Quick Add Session Modal -->
+  <div class="modal-overlay" id="quickSessionModal" aria-hidden="true" role="dialog" aria-labelledby="quickSessionTitle">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="quickSessionTitle">Plan Study Session</h2>
+        <button class="modal-close" data-close="quickSessionModal" aria-label="Close modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <form id="quickSessionForm">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="qsSubject">Subject <span class="required">*</span></label>
+            <input type="text" id="qsSubject" class="form-input" required>
+            <span class="form-error"></span>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="qsDate">Date <span class="required">*</span></label>
+              <input type="date" id="qsDate" class="form-input" required>
+              <span class="form-error"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="qsTime">Start Time <span class="required">*</span></label>
+              <input type="time" id="qsTime" class="form-input" required>
+              <span class="form-error"></span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="qsDuration">Duration (minutes)</label>
+              <input type="number" id="qsDuration" class="form-input" value="60" min="15" max="480">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="qsType">Session Type</label>
+              <select id="qsType" class="form-select">
+                <option value="lecture">Lecture Review</option>
+                <option value="coding">Coding Practice</option>
+                <option value="lab">Lab Work</option>
+                <option value="group">Group Study</option>
+                <option value="project">Project Work</option>
+                <option value="review">Review</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-close="quickSessionModal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Plan Session</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
