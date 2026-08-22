@@ -603,3 +603,67 @@
     right: -4px !important;
   }
 }
+
+/* ===== FINAL MOBILE SIDEBAR ===== */
+
+@media (max-width: 768px) {
+
+  .sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 280px !important;
+    max-width: 85vw !important;
+    height: 100vh !important;
+    z-index: 99999 !important;
+    transform: translateX(-110%) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    pointer-events: none !important;
+    opacity: 1 !important;
+  }
+
+  .sidebar.open {
+    transform: translateX(0) !important;
+    pointer-events: auto !important;
+  }
+
+  .sidebar-link {
+    pointer-events: auto !important;
+    position: relative !important;
+    z-index: 100000 !important;
+    opacity: 1 !important;
+  }
+
+  /* Disable the old invisible overlay completely */
+  .sidebar-overlay {
+    display: none !important;
+    pointer-events: none !important;
+  }
+
+  .topbar {
+    z-index: 1000 !important;
+  }
+
+  .notification-panel {
+    position: absolute !important;
+    right: 0 !important;
+    left: auto !important;
+    width: min(320px, calc(100vw - 24px)) !important;
+    max-width: calc(100vw - 24px) !important;
+    z-index: 99998 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 270px !important;
+  }
+
+  .notification-panel {
+    width: calc(100vw - 20px) !important;
+    max-width: calc(100vw - 20px) !important;
+    right: -4px !important;
+  }
+}
