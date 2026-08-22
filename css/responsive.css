@@ -667,3 +667,33 @@
     right: -4px !important;
   }
 }
+
+/* ===== MOBILE NOTIFICATION PANEL FIX ===== */
+
+@media (max-width: 768px) {
+  .topbar-right {
+    position: relative !important;
+  }
+
+  .notification-panel {
+    position: fixed !important;
+    top: calc(var(--topbar-height) + 8px) !important;
+    right: 12px !important;
+    left: 12px !important;
+    width: auto !important;
+    max-width: none !important;
+    max-height: calc(100vh - var(--topbar-height) - 24px) !important;
+    overflow-y: auto !important;
+    z-index: 999999 !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .notification-panel {
+    top: calc(var(--topbar-height) + 8px) !important;
+    right: 10px !important;
+    left: 10px !important;
+    width: auto !important;
+  }
+}
