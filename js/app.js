@@ -248,42 +248,30 @@ const StudyFlowApp = {
   },
 
   initMobileMenu() {
-    const menuBtn = document.getElementById('mobileMenuBtn');
-    const sidebar = document.getElementById('sidebar');
-    let overlay = document.querySelector('.sidebar-overlay');
+  const menuBtn = document.getElementById('mobileMenuBtn');
+  const sidebar = document.getElementById('sidebar');
 
-    if (!overlay) {
-      overlay = document.createElement('div');
-      overlay.className = 'sidebar-overlay';
-      document.body.appendChild(overlay);
-    }
+  if (!menuBtn || !sidebar) return;
 
-    const closeMenu = () => {
-      sidebar?.classList.remove('open');
-      overlay.classList.remove('visible');
+  // Open / close mobile sidebar
+  menuBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    sidebar.classList.toggle('open');
+
+    document.body.style.overflow =
+      sidebar.classList.contains('open') ? 'hidden' : '';
+  });
+
+  // Close sidebar when a navigation link is selected
+  sidebar.querySelectorAll('.sidebar-link').forEach(link => {
+    link.addEventListener('click', () => {
+      sidebar.classList.remove('open');
       document.body.style.overflow = '';
-    };
-
-    const openMenu = () => {
-      sidebar?.classList.add('open');
-      overlay.classList.add('visible');
-      document.body.style.overflow = 'hidden';
-    };
-
-    menuBtn?.addEventListener('click', () => {
-      if (sidebar?.classList.contains('open')) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
     });
-
-    overlay.addEventListener('click', closeMenu);
-
-    sidebar?.querySelectorAll('.sidebar-link').forEach(link => {
-      link.addEventListener('click', closeMenu);
-    });
-  },
+  });
+},
 
   initLandingNav() {
     const nav = document.querySelector('.landing-nav');
