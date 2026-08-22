@@ -354,6 +354,62 @@
 }
 
 /* ─── Print ─── */
+
+/* ─── Landing Header Mobile Fix ─── */
+@media (max-width: 768px) {
+  .landing-nav-inner {
+    padding: 0 var(--space-4);
+    gap: var(--space-3);
+  }
+
+  .landing-nav .logo {
+    flex-shrink: 0;
+  }
+
+  .landing-nav-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-shrink: 0;
+  }
+
+  .landing-nav-actions .btn-primary {
+    display: inline-flex;
+    padding: 0.65rem 0.9rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .landing-nav-actions .btn-ghost {
+    display: none;
+  }
+
+  .mobile-nav-toggle {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-nav-inner {
+    padding: 0 var(--space-3);
+  }
+
+  .landing-nav-actions .btn-primary {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.78rem;
+  }
+
+  .landing-nav .logo {
+    font-size: 1.1rem;
+  }
+
+  .landing-nav .logo-icon {
+    width: 34px;
+    height: 34px;
+  }
+}
+
 @media print {
   .sidebar,
   .topbar,
