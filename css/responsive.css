@@ -502,3 +502,104 @@
     z-index: 900;
   }
 }
+
+/* ===== MOBILE NAVIGATION - FINAL FIX ===== */
+
+@media (max-width: 768px) {
+
+  /* Sidebar itself */
+  .sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 280px !important;
+    max-width: 85vw !important;
+    height: 100vh !important;
+    z-index: 9999 !important;
+    transform: translateX(-105%) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    background: var(--color-bg-secondary) !important;
+    opacity: 1 !important;
+  }
+
+  .sidebar.open {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  /* Sidebar navigation */
+  .sidebar-nav {
+    position: relative !important;
+    z-index: 10000 !important;
+  }
+
+  .sidebar-link {
+    position: relative !important;
+    z-index: 10001 !important;
+    pointer-events: auto !important;
+    opacity: 1 !important;
+    color: var(--color-text-primary) !important;
+  }
+
+  .sidebar-link:hover,
+  .sidebar-link:active,
+  .sidebar-link.active {
+    color: var(--color-text-primary) !important;
+  }
+
+  /* Overlay stays BEHIND sidebar */
+  .sidebar-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 9990 !important;
+    display: block !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  .sidebar-overlay.visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  /* Topbar */
+  .topbar {
+    z-index: 1000 !important;
+  }
+
+  /* Notification popup — keep it inside the phone screen */
+  .notification-panel {
+    position: absolute !important;
+    top: calc(100% + 8px) !important;
+    right: 0 !important;
+    left: auto !important;
+    width: min(320px, calc(100vw - 32px)) !important;
+    max-width: calc(100vw - 32px) !important;
+    z-index: 10000 !important;
+    transform: none !important;
+  }
+
+  .notification-panel.open {
+    display: block !important;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 480px) {
+
+  .sidebar {
+    width: 270px !important;
+    max-width: 82vw !important;
+  }
+
+  .notification-panel {
+    width: calc(100vw - 24px) !important;
+    max-width: calc(100vw - 24px) !important;
+    right: -4px !important;
+  }
+}
